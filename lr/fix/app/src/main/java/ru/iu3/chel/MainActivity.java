@@ -1,4 +1,4 @@
-package ru.iu3.chel;;
+package ru.iu3.chel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         Button btn = findViewById(R.id.btnClickMe);
         btn.setOnClickListener((View v) -> {
             try {
-                Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+
+                Intent it = new Intent(this, PinpadActivity.class);
+                startActivity(it);
         }
         catch(Exception e){
         }});

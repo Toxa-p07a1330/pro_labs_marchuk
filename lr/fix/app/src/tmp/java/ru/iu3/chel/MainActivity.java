@@ -1,4 +1,5 @@
 package ru.iu3.chel;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -35,15 +36,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn = findViewById(R.id.btnClickMe);
-        btn.setOnClickListener((View v) -> { onButtonClick(v);});
+        btn.setOnClickListener((View v) -> {
+            onButtonClick(v);
+        });
         Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
         // Button btn = findViewById(R.id.btnClickMe);
         // btn.setOnClickListener((View v) -> { onButtonClick(v);});
 
-       // byte[] rnd = randomBytes(16);
-       // byte[] data = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-       // byte[] encrypted = encrypt(rnd, data);
-       // byte[] decrypted = decrypt(rnd, encrypted);
+        // byte[] rnd = randomBytes(16);
+        // byte[] data = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+        // byte[] encrypted = encrypt(rnd, data);
+        // byte[] decrypted = decrypt(rnd, encrypted);
         // String originalData  = new String(data, StandardCharsets.UTF_8);
         // String encryptedData = new String(encrypted, StandardCharsets.UTF_8);
         // String decryptedData = new String(decrypted, StandardCharsets.UTF_8);
@@ -63,23 +66,25 @@ public class MainActivity extends AppCompatActivity {
         // System.out.println("Decrypted: " + decryptedData);
 
         // Example of a call to a native method
-       // TextView tv = findViewById(R.id.sample_text);
-      //  tv.setText(stringFromJNI());
+        // TextView tv = findViewById(R.id.sample_text);
+        //  tv.setText(stringFromJNI());
     }
 
     public native String stringFromJNI();
+
     public static native int initRng();
+
     public static native byte[] randomBytes(int no);
 
     public static native byte[] encrypt(byte[] key, byte[] data);
+
     public static native byte[] decrypt(byte[] key, byte[] data);
 
     public static byte[] StringToHex(String s) {
         byte[] hex;
         try {
             return Hex.decodeHex(s.toCharArray());
-        }
-        catch (DecoderException ex) {
+        } catch (DecoderException ex) {
             hex = null;
         }
         return new byte[0];
@@ -92,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
         // String s = new String(Hex.encodeHex(dec)).toUpperCase();
         // Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
         Intent it = new Intent(this, PinpadActivity.class);
-       // startActivity(it);
+        // startActivity(it);
 
-         startActivityForResult(it, 0);
+        startActivityForResult(it, 0);
     }
 }
